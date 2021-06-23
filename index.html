@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <script defer src="./header/index.js"></script>
+    <link rel="stylesheet" href="./header/index.css" />
+    <script defer src="./footer/index.js"></script>
+    <link rel="stylesheet" href="./footer/index.css" />
+    <script defer src="./index.js"></script>
+    <link rel="stylesheet" href="./style.css" />
+    <title>Home</title>
+  </head>
+  <body>
+    <div class="header-contenedor"></div>
+    <div class="home">
+      <div class="home__content">
+        <h1 class="home__title">Hola</h1>
+        <h2 class="home__subtitle">Soy Rafa</h2>
+      </div>
+    </div>
+    <div class="presentacion">
+      <template class="template-presentacion">
+        <img class="presentacion__foto" src="" alt="" />
+        <div class="presentacion__content">
+          <h2 class="presentacion__titulo"></h2>
+          <p class="presentacion__texto"></p>
+        </div>
+      </template>
+    </div>
+    <div class="mis-servicios">
+      <h2 class="mis-servicios__titulo">Mis servicios</h2>
+      <div class="mis-servicios__servicios">
+        <template class="servicio-template">
+          <article class="mis-servicios__servicio">
+            <img src="" alt="" class="mis-servicios__servicio-imagen" />
+            <h3 class="mis-servicios__servicio-titulo"></h3>
+            <p class="mis-servicios__servicio-texto"></p>
+          </article>
+        </template>
+      </div>
+    </div>
+    <div class="contacto">
+      <form class="form-contacto">
+        <h2 class="form-contacto__titulo">Escribime</h2>
+        <div class="form-contacto__inputs">
+          <div class="form-contacto__input--nombre">
+            <label class="form-contacto__label"
+              >NOMBRE
+              <input
+                name="nombre"
+                autocomplete="off"
+                type="text"
+                class="form-contacto__input"
+              />
+            </label>
+          </div>
+          <div class="form-contacto__input--email">
+            <label class="form-contacto__label"
+              >EMAIL
+              <input
+                name="email"
+                autocomplete="off"
+                type="text"
+                class="form-contacto__input"
+              />
+            </label>
+          </div>
+          <div class="form-contacto__input--mensaje">
+            <label class="form-contacto__label"
+              >MENSAJE
+              <textarea
+                name="mensaje"
+                class="form-contacto__textarea"
+              ></textarea>
+            </label>
+          </div>
+          <button class="form-contacto__boton">Enviar</button>
+        </div>
+      </form>
+    </div>
+    <div class="footer-contenedor"></div>
+  </body>
+</html>
