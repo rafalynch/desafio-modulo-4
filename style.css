@@ -112,6 +112,7 @@ body {
 .mis-servicios__servicio-titulo {
   font-size: 24px;
   font-weight: bold;
+  text-align: center;
 }
 
 .mis-servicios__servicio-imagen {

@@ -30,6 +30,7 @@
   background-color: #161616;
   justify-items: center;
   grid-template-rows: 140px auto auto auto;
+  font-family: "poppins";
 }
 
 .header__x {
