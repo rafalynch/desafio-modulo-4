@@ -154,7 +154,6 @@ function sendMensajePost(event) {
   value["nombre"] = formData.getAll("nombre");
   value["email"] = formData.getAll("email");
   value["mensaje"] = formData.getAll("mensaje");
-  // console.log(value["nombre"]);
 
   var data = {
     to: "rafa_lynch@hotmail.com",
@@ -175,7 +174,10 @@ function sendMensajePost(event) {
   })
     .then((res) => res.json())
     .catch((error) => console.error("Error:", error))
-    .then((response) => console.log("Success:", response));
+    .then((response) => {
+      console.log("Success:", response);
+      location.reload();
+    });
 }
 
 function main() {
