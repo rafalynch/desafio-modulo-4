@@ -1,14 +1,43 @@
+// Renderizar el header
 function addHeader() {
   const headerContEl = document.querySelector(".header-contenedor");
   header(headerContEl);
   burger();
 }
 
+// Renderizar el footer
 function addFooter() {
   const footerContEl = document.querySelector(".footer-contenedor");
   footer(footerContEl);
 }
 
+// Renderizar el formulario de contacto
+function addContacto() {
+  const contactoContEl = document.querySelector(".contacto-contenedor");
+  contacto(contactoContEl);
+}
+
+// Buscar los datos de presentacion en contenful via API
+function fetchPresentacion() {
+  // fetch desde contentful
+  const entries = fetch(
+    "https://cdn.contentful.com/spaces/d2bkp66t71gu/environments/master/entries?access_token=0i8h4DTJiqy4tl2Af562Wc8ekUkff07fehqiET9HCPU"
+  )
+    .then((r) => {
+      return r.json();
+    })
+    .then((json) => {
+      //filtrar por contenido (presentacion)
+      const presentacionJson = json.items.filter((item) => {
+        return item.sys.contentType.sys.id == "presentacion";
+      });
+      return presentacionJson;
+    });
+
+  return entries;
+}
+
+// Cargar los datos de presentacion al template
 const loadPresentacion = async (entry) => {
   if ("content" in document.createElement("template")) {
     // Instanciar los elementos "presentacion"
@@ -46,25 +75,7 @@ const loadPresentacion = async (entry) => {
   }
 };
 
-function fetchPresentacion() {
-  // fetch desde contentful
-  const entries = fetch(
-    "https://cdn.contentful.com/spaces/d2bkp66t71gu/environments/master/entries?access_token=0i8h4DTJiqy4tl2Af562Wc8ekUkff07fehqiET9HCPU"
-  )
-    .then((r) => {
-      return r.json();
-    })
-    .then((json) => {
-      //filtrar por contenido (presentacion)
-      const presentacionJson = json.items.filter((item) => {
-        return item.sys.contentType.sys.id == "presentacion";
-      });
-      return presentacionJson;
-    });
-
-  return entries;
-}
-
+// Renderizar la presentacion
 function renderPresentacion() {
   const presentacionJson = fetchPresentacion();
   presentacionJson.then((entry) => {
@@ -72,6 +83,27 @@ function renderPresentacion() {
   });
 }
 
+// Buscar los datos de servicios en contenful via API
+function fetchServicios() {
+  // Fetch desde contentful
+  const entries = fetch(
+    "https://cdn.contentful.com/spaces/d2bkp66t71gu/environments/master/entries?access_token=0i8h4DTJiqy4tl2Af562Wc8ekUkff07fehqiET9HCPU"
+  )
+    .then((r) => {
+      return r.json();
+    })
+    .then((json) => {
+      // Filtrar por contenido (servicio)
+      const serviciosJson = json.items.filter((item) => {
+        return item.sys.contentType.sys.id == "servicio";
+      });
+      return serviciosJson;
+    });
+
+  return entries;
+}
+
+// Cargar los datos de servicios al template
 const loadServicios = async (entry) => {
   if ("content" in document.createElement("template")) {
     // Instanciar los elementos "servicios"
@@ -90,7 +122,7 @@ const loadServicios = async (entry) => {
       );
       servicioDescripcion.textContent = entry[index].fields.descripcion;
 
-      // fetch imagen
+      // Fetch imagen
       var servicioImagen = clone.querySelector(
         ".mis-servicios__servicio-imagen"
       );
@@ -106,7 +138,7 @@ const loadServicios = async (entry) => {
           servicioImagen.setAttribute("src", json.fields.file.url);
         });
 
-      // append child
+      // Append child
       servicios.appendChild(clone);
     }
   } else {
@@ -115,25 +147,7 @@ const loadServicios = async (entry) => {
   }
 };
 
-function fetchServicios() {
-  // fetch desde contentful
-  const entries = fetch(
-    "https://cdn.contentful.com/spaces/d2bkp66t71gu/environments/master/entries?access_token=0i8h4DTJiqy4tl2Af562Wc8ekUkff07fehqiET9HCPU"
-  )
-    .then((r) => {
-      return r.json();
-    })
-    .then((json) => {
-      //filtrar por contenido (servicio)
-      const serviciosJson = json.items.filter((item) => {
-        return item.sys.contentType.sys.id == "servicio";
-      });
-      return serviciosJson;
-    });
-
-  return entries;
-}
-
+// Renderizar los servicios
 function renderServicios() {
   const serviciosJson = fetchServicios();
   serviciosJson.then((entry) => {
@@ -141,12 +155,14 @@ function renderServicios() {
   });
 }
 
+// Funcion que se ejecuta cuando el cliente envia un mensaje
 function sendMensaje() {
   document
     .querySelector(".form-contacto")
     .addEventListener("submit", sendMensajePost);
 }
 
+// Funcion que envia el mensaje a mi email
 function sendMensajePost(event) {
   event.preventDefault();
   const formData = new FormData(event.target);
@@ -183,6 +199,7 @@ function sendMensajePost(event) {
 function main() {
   addHeader();
   addFooter();
+  addContacto();
   renderServicios();
   renderPresentacion();
   sendMensaje();

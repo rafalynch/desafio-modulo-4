@@ -11,6 +11,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <script defer src="./header/index.js"></script>
     <link rel="stylesheet" href="./header/index.css" />
+    <script defer src="./contacto/index.js"></script>
+    <link rel="stylesheet" href="./contacto/index.css" />
     <script defer src="./footer/index.js"></script>
     <link rel="stylesheet" href="./footer/index.css" />
     <script defer src="./index.js"></script>
@@ -46,44 +48,9 @@
         </template>
       </div>
     </div>
-    <div class="contacto">
-      <form class="form-contacto">
-        <h2 class="form-contacto__titulo">Escribime</h2>
-        <div class="form-contacto__inputs">
-          <div class="form-contacto__input--nombre">
-            <label class="form-contacto__label"
-              >NOMBRE
-              <input
-                name="nombre"
-                autocomplete="off"
-                type="text"
-                class="form-contacto__input"
-              />
-            </label>
-          </div>
-          <div class="form-contacto__input--email">
-            <label class="form-contacto__label"
-              >EMAIL
-              <input
-                name="email"
-                autocomplete="off"
-                type="text"
-                class="form-contacto__input"
-              />
-            </label>
-          </div>
-          <div class="form-contacto__input--mensaje">
-            <label class="form-contacto__label"
-              >MENSAJE
-              <textarea
-                name="mensaje"
-                class="form-contacto__textarea"
-              ></textarea>
-            </label>
-          </div>
-          <button class="form-contacto__boton">Enviar</button>
-        </div>
-      </form>
+    <div class="contacto-section">
+      <h2 class="contacto-section__titulo">Escribime</h2>
+      <div class="contacto-contenedor"></div>
     </div>
     <div class="footer-contenedor"></div>
   </body>

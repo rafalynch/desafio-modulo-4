@@ -9,6 +9,11 @@ function addFooter() {
   footer(footerContEl);
 }
 
+function addContacto() {
+  const contactoContEl = document.querySelector(".contacto-contenedor");
+  contacto(contactoContEl);
+}
+
 function sendMensaje() {
   document
     .querySelector(".form-contacto")
@@ -51,6 +56,7 @@ function sendMensajePost(event) {
 function main() {
   addHeader();
   addFooter();
+  addContacto();
   sendMensaje();
 }
 
